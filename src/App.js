@@ -1,47 +1,32 @@
 import './App.css';
-import { Link, Outlet } from 'react-router-dom';
+import {useState, useEffect} from "react";
 
-function Home() {
+function GithubUser( {name, location} ){
   return (
     <div>
-      <h1>Hello Netherlands!!</h1>
-      <nav>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </nav>
+      <h1>{name}</h1>
+      <h3>{location}</h3>
     </div>
   );
 }
 
+function App() {
+  const [data, setData] = useState(null);
 
-export function About(){
-  return(
-    <div>
-      <h2>About us</h2>
-      <Outlet />
-    </div>
-  );
+  useEffect(() => {
+    fetch(
+      `https://api.github.com/users/mumtazakhtar`
+      ).then((response)=> response.json())
+       .then(setData);
+  },[]);
+  if (data)
+    return(
+      <GithubUser
+        name={data.name}
+        location={data.location}
+      />
+    );
+  return <h1>data</h1>
 }
 
-export function History(){
-  return(
-    <div>
-      <h2>About history</h2>
-    </div>
-  );
-}
-
-
-export function Contact(){
-  return(
-    <div>
-      <h2>Contact us</h2>
-    </div>
-  );
-}
-
- export function App() {
-  return (
-   <Home />
-  );
-}
+export default App;
