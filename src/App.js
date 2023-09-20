@@ -1,7 +1,7 @@
 import './App.css';
 import {useState, useEffect} from "react";
 
-function GithubUser( {name, location} ){
+function GithubUser( {name, location} ) {
   return (
     <div>
       <h1>{name}</h1>
