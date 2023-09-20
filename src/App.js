@@ -30,3 +30,41 @@ function App() {
 }
 
 export default App;
+
+
+//working with render props
+// import './App.css';
+
+// const books = [
+//   {name: "get ready", rating: 4.3},
+//   {name: "to the success", rating: 4.5},
+//   {name: "Back to form", rating: 4.8}
+// ];
+
+// function List({data, renderItem, renderEmpty}) {
+//   return !data.length ? (renderEmpty) : (
+//     <ul>
+//       {data.map((item) => (
+//         <li key={item.name}>
+//           {renderItem(item)}
+//         </li>
+//        ))
+//       }
+//     </ul>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <List
+//       data={books}
+//       renderEmpty={<p> Empty books list</p>}
+//       renderItem={(item) => (
+//         <>
+//           {item.name} - {item.rating}
+//         </>
+//       )
+//       }
+//     />
+//   );
+// }
